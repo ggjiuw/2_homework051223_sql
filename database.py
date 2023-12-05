@@ -13,6 +13,7 @@ with sqlite3.connect('db.sqlite3') as connection:
     """
     cursor.execute(query)
 
+
     values = (
         ('Sumosung TV', '13499', '180'),
         ('Polystation 6', '7999', '120'),
@@ -42,10 +43,12 @@ with sqlite3.connect('db.sqlite3') as connection:
     result = cursor.execute(query)
     print(result.fetchall())
 
+
     print(f"\n{cursor.execute('SELECT title FROM goods WHERE warranty_period_days = 20').fetchall()}")
 
     without_sugar = cursor.execute('SELECT * FROM goods WHERE title LIKE "%без цукру%"')
     print(f"\n{without_sugar.fetchall()}")
 
     print(f"\n{cursor.execute('SELECT * FROM goods LIMIT 3').fetchall()}")
+
     print(f"\n{cursor.execute('SELECT * FROM goods LIMIT 3 OFFSET 3').fetchall()}")
