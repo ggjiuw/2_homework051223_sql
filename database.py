@@ -31,7 +31,7 @@ with sqlite3.connect('db.sqlite3') as connection:
         INSERT INTO goods(title, price, warranty_period_days)
         VALUES (?, ?, ?)
     """
-    # cursor.executemany(query, values)
+    cursor.executemany(query, values)
 
 
     query = """
